@@ -44,17 +44,18 @@ def split_data(csv_path):
     train_path = "../dataset/train"
     test_path = "../dataset/test"
     for type in types:
-        train, test = train_test_split(type, shuffle=True, train_size=0.7)
-        train = type.reset_index()
-        test = type.reset_index()
-        
-        print(train.head())
+        df = type
 
-        # for idx, row in train.iterrows():
-        #     # print(row['filepath'], train_path + '/' + row['type'])
-        #     shutil.copy(row['filepath'], train_path + '/' + row['type'])
-        # for idx, row in test.iterrows():
-        #     shutil.copy(row['filepath'], test_path + '/' + row['type'])
+        train, test = train_test_split(df, random_state=15, train_size=0.7)
+
+        train = train.reset_index(drop=True)
+        test = test.reset_index(drop=True)
+
+        for idx, i in train.iterrows():
+            # print(row['filepath'], train_path + '/' + row['type'])
+            shutil.copy(i['filepath'], train_path + '/' + i['type'])
+        for idx, j in test.iterrows():
+            shutil.copy(j['filepath'], test_path + '/' + j['type'])
         
         
 
