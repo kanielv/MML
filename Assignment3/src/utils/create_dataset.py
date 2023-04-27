@@ -6,7 +6,6 @@ import os
 import csv
 from tqdm import tqdm
 
-
 def create_annotation_file(fp): 
     with open('../dataset/annotations.csv', 'w', newline='') as file:
         writer = csv.writer(file)
