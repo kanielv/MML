@@ -1,5 +1,6 @@
 '''
 This file contains functions for feature extractions
+
 Author: Kaniel Vicencio
 '''
 
@@ -7,8 +8,6 @@ import librosa
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-
-# TODO: Scale each feature
 
 # Waveform
 def get_waveform(fpath): 
