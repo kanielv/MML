@@ -35,5 +35,8 @@ def plot_frquency(y, sr, name):
     plt.xlim([0, 1000])
     plt.show()
 
+def plot_mfcc(y, sr, name):
+    
+
 
 
