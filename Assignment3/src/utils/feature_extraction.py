@@ -25,3 +25,14 @@ def get_mfccs(y, sr):
     # librosa.display.specshow(mfccs, sr=sr, x_axis='time', y_axis='log')
 
 # feature extraction: mel spectogram
+import librosa.feature
+
+def get_melspectrogram(y, sr):
+    df_melspectrogram = pd.DataFrame()
+    mel_spectrogram = librosa.feature.melspectrogram(y=y, sr=sr, n_mels=12)
+    for n_mel in range(len(mel_spectrogram)):
+        df_melspectrogram['Mel_Spectogram_%d'%(n_mel+1)] = mel_spectrogram.T[n_mel]
+
+    print(df_melspectrogram.head())
+    librosa.display.specshow(mel_spectrogram, sr=sr, x_axis='time', y_axis='log')
+
