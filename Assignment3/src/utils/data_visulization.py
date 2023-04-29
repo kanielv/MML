@@ -36,7 +36,26 @@ def plot_frquency(y, sr, name):
     plt.show()
 
 def plot_mfcc(y, sr, name):
-    
+    mfccs = librosa.feature.mfcc(y=y, sr=sr, n_mfcc=12)
+    librosa.display.specshow(mfccs, sr=sr, x_axis='time', y_axis='log')
+    plt.title(name)
+    plt.show()
+
+def plot_chromagram(y, sr, name):
+    chromagram = librosa.feature.chroma_stft(y=y, sr=sr)
+    librosa.display.specshow(chromagram, sr=sr, x_axis='time', y_axis='log')
+    plt.title(name)
+    plt.show()
+
+def plot_mel_spectrogram(y, sr, name):
+    mel_spectrogram = librosa.feature.melspectrogram(y=y, sr=sr, n_mels=12)
+    librosa.display.specshow(mel_spectrogram, sr=sr, x_axis='time', y_axis='log')
+    plt.title(name)
+    plt.show()
+
+
+
+
 
 
 
